@@ -17,16 +17,29 @@ Status for design for web
 	</div>
 
 	<div style="with:50%;display:inline;float:right;">
-	<form >
-	  <input type='text' name='year' value=''>
-	  <input type='submit' value = 'go'>
-	  
-	</form>
+		<form >
+		  <input type='text' name='year' value=''>
+		  <input type='submit' value = 'go'>
+		  
+		</form>
+		 <div class="results">
+			<?php if(!empty($results)):?>
+					 <?php foreach ($results as $row3):?>  
 
-	<ul>
-	<li></li>
-	</ul>
+					<ul>
+					  <li><?php echo $row3->week;?></li>
+				  </ul>
+		   <?php endforeach;?>                    
+				<?php else : ?>  	
+		  <h4> no results</h4>
+		 <?php endif ; ?>  
+		
+		 </div>
+		 <div class="pagination blog-pager">
 
+               <?php echo $links; ?>
+
+          </div>
 	</div>
 </div>	
 </html>
