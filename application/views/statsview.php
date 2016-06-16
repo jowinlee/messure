@@ -153,14 +153,15 @@
     </tbody>
 	<thead>
 		<tr>
-			<th>Crt.</th>
-			<th>Client</th>
-			<th>Address</th>
-			<th>Contact</th>
-			<th>E-mail</th>
-			<th class="col-md-1">Phone</th>
-			<th class="small">Action</th>
-			<th class="small">Action</th>
+			<form name='post_form' action='<?=base_url()?>status/entry' method='post' enctype="multipart/form-data">
+			<th>Add Entry</th>
+			<th><input type='text' name='sale' value=''></br></th>
+			<th><input type='text' name='invoice' value=''></br></th>
+			<th><input type='text' name='ringet' value=''></br></th>
+			<th><input type='text' name='new_customer' value=''></br></th>
+			<th class="col-md-1"></th>
+			<th class="small"><input type='submit' name='submit' value='Submit'></th>
+			<th class="small"><input type='reset' name='submit' value='Clear'></th>
 			<th class="small">Action</th>
 		</tr>
 	</thead>
