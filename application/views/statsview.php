@@ -13,7 +13,7 @@
 
 
 </head>
-<h4>Status for design for web</h4>
+
 <div class="contrainer" style="width:980px;margin-top:50px;margin:auto;display:block;">
 	<div style="with:50%;display:inline;float:left;">
 	<form name='post_form' action='<?=base_url()?>status/entry' method='post' enctype="multipart/form-data">
@@ -29,6 +29,7 @@
 	
 	<div style="clear:both;"></div>
 	<div class="container">
+	<h4>Status for design for web</h4>
 		<div class="row">
 		
 			<div>
@@ -51,29 +52,105 @@
 			</div>
 		</div>
 		<div class="row">
-		 <div class="results">
-				<?php if(!empty($results)):?>
-						 <?php foreach ($results as $row3):?>  
+		 
+	<div class="row">
+	<table class="table solsoTable " data-all="34">
+	<thead>
+		<tr>
+			<th>Week</th>
+			<th>Salg</th>
+			<th>Fakturaret</th>
+			<th>Ringer ex kunder</th>
+			<th>Nye kunder</th>
+			<th class="col-md-1">Phone</th>
+			<th class="small">Action</th>
+			<th class="small">Action</th>
+			<th class="small">Action</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+	<?php if(!empty($results)):?>
+		 <?php foreach ($results as $row3):?>  
+		<tr>
+			<td>
+				<?php echo $row3->week;?>			</td>
 
-						<ul>
-						  <li>Week &nbsp;<?php echo $row3->week;?>
-								<span style="margin-left:10px;"></span><?php echo $row3->sale;?><span style="margin-left:10px;"><?php echo $row3->invoice;?></span>
-						  </li>
-					  </ul>
-			   <?php endforeach;?>                    
-					<?php else : ?>  	
-			  <h4> no results</h4>
-			 <?php endif ; ?>  
+			<td>
+				<?php echo $row3->sale;?>		</td>
 			
-			 </div>
-			 <div class="pagination blog-pager">
+			<td>
+				<?php echo $row3->invoice;?>			</td>					
+			
+			<td>
+				<?php echo $row3->ringet;?>			</td>						
+			
+			<td>
+				<?php echo $row3->new_customer;?>	</td>					
 
-				   <?php echo $links;?>
-			</div>
-		</div>	
-		
-		<div class="row">
-			<table class="table solsoTable " data-all="34">
+			<td>
+				+353 1862 1555			</td>						
+			
+			<td>
+					
+				<button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client">
+					 Show
+				</button>
+			</td>
+
+			<td>		
+				
+				<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42/edit" data-modal-title="Edit Client">
+					 Edit
+				</button>
+			</td>
+			
+			<td>		
+							
+				<button type="button" class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" data-href="client/42">
+					 Delete
+				</button>		
+			</td>
+
+		</tr>
+		<?php endforeach;?>                    
+					<?php else : ?>  
+			
+		<tr>
+			<td></td>
+
+			<td>	</td>
+			
+			<td>	</td>					
+			
+			<td></td>						
+			
+			<td></td>					
+
+			<td></td>						
+			
+			<td>
+					
+				<button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client">
+					 Show
+				</button>
+			</td>
+
+			<td>		
+				
+				<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42/edit" data-modal-title="Edit Client">
+					 Edit
+				</button>
+			</td>
+			
+			<td>		
+							
+				<button type="button" class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" data-href="client/42">
+					 Delete
+				</button>		
+			</td>
+			<?php endif ; ?>  		
+    </tbody>
 	<thead>
 		<tr>
 			<th>Crt.</th>
@@ -87,45 +164,11 @@
 			<th class="small">Action</th>
 		</tr>
 	</thead>
-	
-	<tbody>
-	
-		
-		<tr>
-			<td>
-				1			</td>
+	</table>
+	<div class="pagination blog-pager">
 
-			<td>
-				Clover Collections, Co.			</td>
-			
-			<td>
-				25 Maiden Lane			</td>					
-			
-			<td>
-				Cassidy Dean			</td>						
-			
-			<td>
-				dean@demo.demo			</td>					
-
-			<td>
-				+353 1862 1555			</td>						
-			
-			<td>
-				<!--
-				/** 
-				 * === BUTTON FOR MODAL SHOW ===
-				 * add solsoShowModal in button class
-				 * place data-href, data-modal-title in button code
-				 * data-href 			= path to your controller for show action
-				 * data-modal-title	= text for modal title
-				*/
-				-->				
-				<button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client">
-					<i class="fa fa-eye"></i> Show
-				</button>
-			</td>
-		</tr>	
-
+				   <?php echo $links;?>
+	</div>
 
 		</div>
 	</div>	
