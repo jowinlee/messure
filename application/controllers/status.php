@@ -10,7 +10,7 @@ class Status extends CI_Controller {
 		$this->load->helper('date');
        $this->load->library('pagination');
     } 
-        public function index()
+        public function test()
         {
 			
 			$this->load->view('statsview');
@@ -31,7 +31,7 @@ class Status extends CI_Controller {
 			'week' =>$week
                 );          
 		    $this->stats_model->insertdata($data);
-			redirect('status\index');
+			redirect('status\get_entry');
 		}
 		 
 		function get_entry(){
@@ -40,6 +40,24 @@ class Status extends CI_Controller {
          {
             $results =array(); 
             $config = array();
+            $config['per_page'] = 5;
+            $config['uri_segment'] = 3;
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['cur_tag_open'] = '<li><a class=" paginate_button active ">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li class="paginate_button">';
+            $config['num_tag_close'] = '</li>';
+            $config['prev_tag_open']='<li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_tag_open']='<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['first_tag_open'] = '<li>';
+            $config['first_tag_cloe'] = '</li>';
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            $config['last_link'] = 'Last';
+            $config['first_link'] = 'First';
             $config['base_url'] = base_url() . "status\get_entry";
             $config['total_rows'] = $this->stats_model->record_count();
             $config['per_page'] = 5;
@@ -61,5 +79,12 @@ class Status extends CI_Controller {
          }
         
         $this->load->view('statsview',$data); 
+		}
+		
+		function get_cities($country)
+		{
+		 $this->load->model('city_model');
+		 header('Content-Type: application/x-json; charset=utf-8');
+		 echo(json_encode($this->city_model->get_cities($country)));
 		}
 }

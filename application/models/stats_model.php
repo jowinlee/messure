@@ -55,4 +55,6 @@ class Stats_model extends CI_Model
        $this->db->insert('status',$data);
        return;
 	}
+	
+	
 }
