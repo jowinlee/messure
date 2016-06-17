@@ -25,31 +25,12 @@
 			<input type='submit' name='submit' value='save'>
 	</form>
 	</div>
-
-	
 	<div style="clear:both;"></div>
 	<div class="container">
 	<h4>Status for design for web</h4>
 		<div class="row">
 		
-			<div>
-				<div >
-				  <select >
-						<option value="-1">Select Year</option>
-				<?php if(!empty($results)):?>
-				
-						 <?php foreach ($results as $row3):?>  
-
-						  <option><?php echo $row3->year;?></option>
-					  
-			   <?php endforeach;?> 
-				</select>
-					<?php else : ?>  	
-			  <h4> no results</h4>
-			 <?php endif ; ?>  
-			
-			 </div>
-			</div>
+			<select name="yearpicker" id="yearpicker"></select>
 		</div>
 		<div class="row">
 		 
@@ -68,76 +49,45 @@
 			<th class="small">Action</th>
 		</tr>
 	</thead>
-	
 	<tbody>
 	<?php if(!empty($results)):?>
 		 <?php foreach ($results as $row3):?>  
 		<tr>
-			<td>
-				<?php echo $row3->week;?>			</td>
-
-			<td>
-				<?php echo $row3->sale;?>		</td>
-			
-			<td>
-				<?php echo $row3->invoice;?>			</td>					
-			
-			<td>
-				<?php echo $row3->ringet;?>			</td>						
-			
-			<td>
-				<?php echo $row3->new_customer;?>	</td>					
-
-			<td>
-				+353 1862 1555			</td>						
-			
-			<td>
-					
-				<button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client">
-					 Show
-				</button>
-			</td>
-
-			<td>		
-				
+			<td><?php echo $row3->week;?>			</td>
+			<td><?php echo $row3->sale;?>		</td>
+			<td><?php echo $row3->invoice;?>			</td>					
+			<td><?php echo $row3->ringet;?>			</td>						
+			<td><?php echo $row3->new_customer;?>	</td>				
+			<td>+353 1862 1555			</td>						
+			<td><button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client"> Show
+				</button></td>
+			<td>			
 				<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42/edit" data-modal-title="Edit Client">
 					 Edit
 				</button>
 			</td>
-			
-			<td>		
-							
+			<td>					
 				<button type="button" class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" data-href="client/42">
 					 Delete
 				</button>		
 			</td>
-
 		</tr>
 		<?php endforeach;?>                    
 					<?php else : ?>  
 			
 		<tr>
 			<td></td>
-
-			<td>	</td>
-			
-			<td>	</td>					
-			
-			<td></td>						
-			
+			<td></td>
 			<td></td>					
-
+			<td></td>
+			<td></td>					
 			<td></td>						
-			
-			<td>
-					
+			<td>		
 				<button type="button" class="btn btn-info solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42" data-modal-title="Show Client">
 					 Show
 				</button>
 			</td>
-
-			<td>		
-				
+			<td>			
 				<button type="button" class="btn btn-primary solsoShowModal" data-toggle="modal" data-target="#solsoCrudModal" data-href="client/42/edit" data-modal-title="Edit Client">
 					 Edit
 				</button>
@@ -174,5 +124,40 @@
 		</div>
 	</div>	
 </div>	
+<script type="text/javascript">
+for (i = new Date().getFullYear(); i > 1900; i--)
+{
+    $('#yearpicker').append($('<option />').val(i).html(i));
+}</script>
+<script>
+function selectState(country_id){
+  if(country_id!="-1"){
+    loadData('state',country_id);
+    $("#city_dropdown").html("<option value='-1'>Select city</option>");
+  }else{
+    $("#state_dropdown").html("<option value='-1'>Select state</option>");
+    $("#city_dropdown").html("<option value='-1'>Select city</option>");
+  }
+}
+</script>
+<script type="text/javascript">
+
+function loadData(loadType,loadId){
+  var dataString = 'loadType='+ loadType +'&loadId='+ loadId;
+  $("#"+loadType+"_loader").show();
+  $("#"+loadType+"_loader").fadeIn(400).html('Please wait... <img src="image/loading.gif" />');
+  $.ajax({
+    type: "POST",
+    url: "loadData",
+    data: dataString,
+    cache: false,
+    success: function(result){
+      $("#"+loadType+"_loader").hide();
+      $("#"+loadType+"_dropdown").html("<option value='-1'>Select "+loadType+"</option>");
+      $("#"+loadType+"_dropdown").append(result);
+    }
+ });
+}
+</script>
 
 </html>

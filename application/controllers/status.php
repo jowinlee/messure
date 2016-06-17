@@ -18,7 +18,7 @@ class Status extends CI_Controller {
         }
 		 public function entry(){
 			 
-			 $date = DateTime::createFromFormat("Y-m-d",date('Y-m-d'));
+			$date = DateTime::createFromFormat("Y-m-d",date('Y-m-d'));
 			  
 			$year = $date->format("Y");
 			$week = $date->format("W");
