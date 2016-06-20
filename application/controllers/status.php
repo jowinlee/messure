@@ -7,7 +7,7 @@ class Status extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
         $this ->load-> database();
 		$this->load->model('stats_model');
-		$this->load->helper('date');
+		$this->load->helper('date','html');
        $this->load->library('pagination');
     } 
         public function test()
@@ -81,10 +81,17 @@ class Status extends CI_Controller {
         $this->load->view('statsview',$data); 
 		}
 		
-		function get_cities($country)
-		{
-		 $this->load->model('city_model');
-		 header('Content-Type: application/x-json; charset=utf-8');
-		 echo(json_encode($this->city_model->get_cities($country)));
+		function Register() {
+		 $data['year'] = $this -> stats_model -> get_years();
+		 $this -> load -> view('lists', $data);
+		 }
+		 
+		function get_weeks($year){
+		 $this->load->model('stats_model');
+		header('Content-Type: application/x-json; charset=utf-8');
+		echo(json_encode($this->stats_model->get_weeks($year)));
+		
 		}
+		
+	
 }

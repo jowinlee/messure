@@ -15,67 +15,58 @@
 </head>
 
 <div class="contrainer" style="width:980px;margin-top:50px;margin:auto;display:block;">
-	<div style="with:50%;display:inline;float:left;">
-	<form name='post_form' action='<?=base_url()?>status/entry' method='post' enctype="multipart/form-data">
-
-			Salg<input type='text' name='sale' value=''></br>
-			Fakturaret<input type='text' name='invoice' value=''></br>
-			Ringer ex kunder<input type='text' name='ringet' value=''></br>
-			Nye kunder<input type='text' name='new_customer' value=''></br>
-			<input type='submit' name='submit' value='save'>
-	</form>
-	</div>
-	<div style="clear:both;"></div>
-	<div class="container">
-	<h4>Status for design for web</h4>
-		<div class="row">
-		
-			<?php $year['#'] = 'Please Select'; ?>
- 
-		<label for="year">year: </label><?php echo form_dropdown('year_id', $year, '#', 'id="year"'); ?><br />
-		</div>
-		<div class="row">
-		 
-	<div class="row">
-	<table id="ajxResult" class="table solsoTable " data-all="34">
-	<thead>
-		<tr>
-			<th>Week</th>
-			<th>Salg</th>
-			<th>Fakturaret</th>
-			<th>Ringer ex kunder</th>
-			<th>Nye kunder</th>
-			<th class="col-md-1">Phone</th>
-			<th class="small">Action</th>
-			<th class="small">Action</th>
-			<th class="small">Action</th>
-		</tr>
-	</thead>
-	<tbody id="data">
 	
-    </tbody>
-    <thead>
-		<tr>
-			<form name='post_form' action='<?=base_url()?>status/entry' method='post' enctype="multipart/form-data">
-			<th>Add Entry</th>
-			<th><input type='text' name='sale' value=''></br></th>
-			<th><input type='text' name='invoice' value=''></br></th>
-			<th><input type='text' name='ringet' value=''></br></th>
-			<th><input type='text' name='new_customer' value=''></br></th>
-			<th class="col-md-1"></th>
-			<th class="small"><input type='submit' name='submit' value='Submit'></th>
-			<th class="small"><input type='reset' name='submit' value='Clear'></th>
-			<th class="small">Action</th>
-		</tr>
-	</thead>
-	</table>
-	<div class="pagination blog-pager">
-				  
-	</div>
+	<div style="clear:both;"></div>
+	<div class="row">
+		<h4>Status for design for web</h4>
+			<div class="section">
+			
+				<?php $year['#'] = 'Please Select'; ?>
+	 
+			<label for="year">year: </label><?php echo form_dropdown('year_id', $year, '#', 'id="year"'); ?><br />
+			</div>
+			<div class="section">
+			 
+				
+				<table id="ajxResult" class="table solsoTable " data-all="34">
+				<thead>
+					<tr>
+						<th>Week</th>
+						<th>Salg</th>
+						<th>Fakturaret</th>
+						<th>Ringer ex kunder</th>
+						<th>Nye kunder</th>
+						<th class="col-md-1">Status(Green & Red)</th>
+						<th class="small">Action</th>
+						<th class="small">Action</th>
+						<th class="small">Action</th>
+					</tr>
+				</thead>
+				<tbody id="data">
+				
+				</tbody>
+				<thead>
+					<tr>
+						<form name='post_form' action='<?=base_url()?>status/entry' method='post' enctype="multipart/form-data">
+						<th>Add Entry</th>
+						<th><input type='text' name='sale' value=''></br></th>
+						<th><input type='text' name='invoice' value=''></br></th>
+						<th><input type='text' name='ringet' value=''></br></th>
+						<th><input type='text' name='new_customer' value=''></br></th>
+						<th class="col-md-1"></th>
+						<th class="small"><input type='submit' name='submit' value='Submit'></th>
+						<th class="small"><input type='reset' name='submit' value='Clear'></th>
+						<th class="small">Action</th>
+					</tr>
+				</thead>
+				</table>
+				<div class="pagination blog-pager">
+							  
+				</div>
 
-		</div>
+			 
+		</div>	
 	</div>	
-</div>	
 </div>
 <script type="text/javascript">
 for (i = new Date().getFullYear(); i > 1900; i--)

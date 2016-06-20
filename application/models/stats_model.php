@@ -55,6 +55,41 @@ class Stats_model extends CI_Model
        $this->db->insert('status',$data);
        return;
 	}
+	function get_weeks($year = null){
+				 
+		 if($year != NULL){
+		 $this->db->where('year_id', $year);
+		 }
+		 
+		 $query = $this->db->get('status');
+		 
+		 
+		 if($query->result())
+		 {
+		 foreach ($query->result() as $weekdata) {
+			$weeks[] = $weekdata;
+		 }
+		 return $weeks;
+		 
+		 }else{
+		 return FALSE;
+		 }
+		}
+ 
 	
-	
+	function get_years() {
+		 $this -> db -> select('year_id, year');
+		 $query = $this -> db -> get('year');
+		 
+		$years = array();
+		 
+		if ($query -> result()) {
+		 foreach ($query->result() as $yeardata) {
+		 $years[$yeardata -> year_id] = $yeardata -> year;
+		 }
+		 return $years;
+		 } else {
+		 return FALSE;
+		 }
+	}
 }
