@@ -30,9 +30,7 @@
 	<h4>Status for design for web</h4>
 		<div class="row">
 		
-			<?php $year['#'] = 'Please Select'; ?>
- 
-		<label for="year">year: </label><?php echo form_dropdown('year_id', $year, '#', 'id="year"'); ?><br />
+			<select name="yearpicker" id="yearpicker"></select>
 		</div>
 		<div class="row">
 		 
@@ -76,7 +74,6 @@
 		</div>
 	</div>	
 </div>	
-</div>
 <script type="text/javascript">
 for (i = new Date().getFullYear(); i > 1900; i--)
 {
