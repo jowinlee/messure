@@ -407,9 +407,9 @@
         text-align: left;
     }    
 	.table th {
-		background: #343D46;
+		background: #cccccc;
 		border-bottom: 1px solid #DDDDDD;
-		color: #ffffff;
+		color: #000000;
 		font-size: 16px;
 		font-weight: 400;
 		padding-bottom: 12px;
