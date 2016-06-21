@@ -2,11 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-theme.min.css" >
+<!--<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-theme.min.css" > -->
+<link rel="stylesheet" href="<?php echo base_url();?>css/semantic.min.css" >
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.growl.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/design.css">

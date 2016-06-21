@@ -4,12 +4,13 @@
 <meta charset="utf-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-theme.min.css" >
+<!-- <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap-theme.min.css" > -->
+<link rel="stylesheet" href="<?php echo base_url();?>css/semantic.min.css" >
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.min.css">
+<script src="<?php echo base_url();?>js/semantic.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.growl.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/design.css">
@@ -17,24 +18,24 @@
 
 </head>
 
-<div class="contraine-fluid" style="width:980px;margin-top:50px;margin:auto;display:block;">
-	
-	<div class="row">
-		<div class="col-sm-3 col-md-2 sidebar">
-			
-		</div>
-		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">	
-			<h4>Status for design for web</h4>
+<div class="ui grid container">
+	<div class="ui equal width masthead vertical segment aligned padded grid">
+		<div class="row"></div>
+  		<div class="row">
+
+    		<div class="column">
+				<h4>Status for design for web</h4>
 				<div class="section">
 				
 					<?php $year['#'] = 'Please Select'; ?>
-		 
-				<label for="year">year: </label><?php echo form_dropdown('year_id', $year, '#', 'id="year"'); ?><br />
+		 		
+				<label for="year">year: </label>
+				<?php echo form_dropdown('year_id', $year, '#', 'class="ui dropdown"', 'class="ui dropdown"'); ?><br />
 				</div>
-				<div class="section">
-				 
+				<div class="section">				 
 					
-					<table id="ajxResult" class="table table-condensed">
+					<table id="ajxResult" class="ui eight column table">
+
 					<thead>
 						<tr>
 							<th>Week</th>
@@ -70,11 +71,13 @@
 								  
 					</div>
 
-				 
-			</div>	
-		</div>
-	</div>	
+    			</div>	
+				
+			</div>
+		</div>	
+	</div>
 </div>
+
 <script type="text/javascript">
 for (i = new Date().getFullYear(); i > 1900; i--)
 {
